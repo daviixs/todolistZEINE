@@ -13,3 +13,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Tarefa{
+  id            Int      @id @default(autoincrement())
+  title         String @db.VarChar(100)
+  description   String @db.VarChar(200)
+  createdAt     DateTime @default(now())
+  finishedAT    DateTime @updatedAt
+
+  @@map("tarefas")
+}
